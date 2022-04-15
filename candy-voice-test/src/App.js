@@ -8,6 +8,7 @@ import Login from './Login';
 import Home from './Home';
 import Page404 from './Page404';
 import Logout from './Logout';
+import Voices from './Voices';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/login" element={<Login/>} />
           <Route exact path='/logout' element={<Logout/>} />
+          <Route exact path='/voices' element={<Voices/>} />
 
           {/* {
             tokenNotParsed ? (

@@ -28,6 +28,21 @@
   color: #61dafb;
 }
 
+li {
+  list-style-type: none;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    /* outline: none;
+    box-shadow: none; */
+    
+}
+.navbar-light .navbar-toggler {
+  color: gray;
+  opacity: 0.3;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
