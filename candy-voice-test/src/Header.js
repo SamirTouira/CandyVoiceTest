@@ -20,7 +20,17 @@ function Header() {
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/login" > Login</Nav.Link>
+                <>
+                {localStorage.getItem("user-token") ? (
+                    <>
+                        {/* <Route exact path="/profile" component={Profile} /> */}
+                        <Nav.Link href="/logout" > Logout</Nav.Link>
+                    </>)
+                    : (
+                        // <Redirect to="/login"/>
+                        <Nav.Link href="/login" > Login</Nav.Link>
+                    )}
+                </>
                 <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

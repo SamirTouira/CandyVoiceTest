@@ -6,36 +6,45 @@ import Header from "./Header";
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [cookie, setCookie] = useState(true);
     const navigate = useNavigate();
     useEffect(() => {
-        if (localStorage.getItem('user-info')) {
-            navigate("/login")
+        if (localStorage.getItem('user-token')) {
+            navigate("/")
         }
     }, [])
 
-   async function login() {
+    async function login() {
         // console.warn(email,password);
-        let item={email,password};
-        let result= await fetch("https://api.candyvoice.com/v1.0/auth/password", {
-            method:'POST',
+        let item = { email, password, cookie };
+        let result = await fetch("https://api.candyvoice.com/v1.0/auth/password", {
+            method: 'POST',
             headers: {
-                "Content-Type":"application/json",
-                "Accept":"application/json"
+                "Content-Type": "application/json",
+                "Accept": "application/json"
             },
             body: JSON.stringify(item)
-            
+
         });
-        result =  await result.json();
-        localStorage.setItem("user-info", JSON.stringify(result));
-        console.log(result);
+        result = await result.json();
+        if (!result.error) {
+            localStorage.setItem("user-token", JSON.stringify(result));
+            console.log(result);
+
+            navigate("/")
+            window.location.reload(false);
+
+        } else {                   
+            alert(result.error);
+        }
     }
     return (
-        <div>
-            <h1>Your Candy Voice login</h1>
-            <div className="col-sm-6 offset-sm-3">
-                <input type="text" placeholder="email" onChange={(e)=>setEmail(e.target.value)} className="form-control" />
+        <div className="col-sm-6 offset-sm-3">
+            <h1>Login with your Candy Voice account</h1>
+            <div>
+                <input type="text" placeholder="email" onChange={(e) => setEmail(e.target.value)} className="form-control" />
                 <br />
-                <input type="password" placeholder="password" onChange={(e)=>setPassword(e.target.value)} className="form-control" />
+                <input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} className="form-control" />
                 <br />
                 <button onClick={login} className="btn btn-primary">Login</button>
             </div>

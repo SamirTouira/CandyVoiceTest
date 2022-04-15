@@ -11,11 +11,20 @@ import Login from './Login';
 function Home() {
     return (
 
-        <div className="Home">
+        <><div className="Home">
             <header className="App-header">
+                {localStorage.getItem("user-token") ? (
+                    <>
+                        {/* <Route exact path="/profile" component={Profile} /> */}
+                        Hi user!
+                    </>)
+                    : (
+                        // <Redirect to="/login"/>
+                        null
+                    )}
                 <h1>Welcome to my Candy Voice Test app!</h1>
             </header>
-        </div>
+        </div></>
     );
 }
 

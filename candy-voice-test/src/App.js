@@ -7,6 +7,7 @@ import { Navbar } from 'react-bootstrap';
 import Login from './Login';
 import Home from './Home';
 import Page404 from './Page404';
+import Logout from './Logout';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/login" element={<Login/>} />
+          <Route exact path='/logout' element={<Logout/>} />
 
           {/* {
             tokenNotParsed ? (
