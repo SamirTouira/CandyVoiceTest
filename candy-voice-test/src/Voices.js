@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import proLogo from './assets/logos/pro-logo.png'
 
 function Voices() {
-    const navigate = useNavigate();
     const token = JSON.parse(localStorage.getItem("user-token"));
+    const navigate = useNavigate();
     const userVoices = JSON.parse(localStorage.getItem("user-voices"));
     useEffect(() => {
         if (token) {
@@ -30,6 +30,7 @@ function Voices() {
         result = await result.json();
         if (!result.error) {
             localStorage.setItem("user-voices", JSON.stringify(result));
+            navigate('/voices')
         } else {
             alert(result.error);
         }
@@ -49,8 +50,6 @@ function Voices() {
         result = await result.json();
         if (!result.error) {
             localStorage.setItem("voice-detail", JSON.stringify(result));
-            console.log(result);
-
             navigate("/voice/" + voiceId)
 
         } else {

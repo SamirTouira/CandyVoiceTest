@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav } from "react-bootstrap"
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Header() {
     const navigate = useNavigate();
@@ -10,20 +10,20 @@ function Header() {
                 <Navbar.Brand href="/">Candy Voice Test</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
+                    <Nav variant="tabs" defaultActiveKey="/" className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <>
                             {localStorage.getItem("user-token") ? (
                                 <>
-                                    <Nav.Link href="/voices" > My voices</Nav.Link>
-                                    <Nav.Link href="/profile" > Profile</Nav.Link>
+                                    <Nav.Link as={NavLink} eventKey={1} to="/voices"> My voices</Nav.Link>
+                                    <Nav.Link as={NavLink} eventKey={2} to="/profile"> Profile</Nav.Link>
                                     <Nav.Link onClick={() => {
                                         if (window.confirm("Are you sure?")) {
                                             navigate('/logout')
                                         } else {
                                             return;
                                         }
-                                    }} > Logout</Nav.Link>
+                                    }} ><span style={{color: "red"}}>Logout</span> </Nav.Link>
                                 </>)
                                 : (
                                     // <Redirect to="/login"/>

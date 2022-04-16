@@ -7,7 +7,7 @@ function Home() {
     const userInfo = JSON.parse(localStorage.getItem("user-info"));
     const navigate = useNavigate();
     useEffect(() => {
-        navigate('/');
+        // navigate('/');
         if (localStorage.getItem('user-token')) {
             console.log(token.jwt_token)
             fetch("https://api.candyvoice.com/v1.0/users/me", {
