@@ -34,14 +34,20 @@ li {
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
-    /* outline: none;
-    box-shadow: none; */
+
+    box-shadow: 10px -2px gray;
     
 }
 .navbar-light .navbar-toggler {
   color: gray;
   opacity: 0.3;
 }
+
+.btn-check:focus+.btn-success, .btn-success:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 
 @keyframes App-logo-spin {
   from {
