@@ -55,7 +55,10 @@ function Voices() {
     }
 
     return (
+        
         <>
+         {token && userVoices !== null ? (
+             <>
             <div className="col-sm-6 offset-sm-3">
                 <br />
                 <h1>My voices ({userVoices.length})</h1>
@@ -91,6 +94,10 @@ function Voices() {
                         </div>
                     </div>
                 </ul>
+            )}
+            </>) 
+            : (
+                null
             )}
         </>
     )

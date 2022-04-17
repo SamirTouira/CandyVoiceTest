@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Logout() {
     const navigate = useNavigate();
     useEffect(() => {
-        localStorage.removeItem('user-token');
+        localStorage.clear();
         navigate("/");
         window.location.reload(false);
     }, [])

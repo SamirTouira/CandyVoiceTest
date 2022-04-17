@@ -9,6 +9,7 @@ function Home() {
     const userInfo = JSON.parse(localStorage.getItem("user-info"));
     const navigate = useNavigate();
     useEffect(() => {
+        navigate('/');
         if (token) {
             console.log(token.jwt_token)
             fetch("https://api.candyvoice.com/v1.0/users/me", {
@@ -34,7 +35,7 @@ function Home() {
         <div className="Home">
             <header className="App-header">
                 <img src={voiceAnimation} width={250} height={100} />
-                {token ? (
+                {token && userInfo !== null ? (
                     <>
                         <p>Hi {userInfo.email}</p>
                         <h1>Welcome to Candy Voice Test app!</h1>
