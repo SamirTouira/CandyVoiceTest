@@ -11,7 +11,6 @@ function Home() {
     useEffect(() => {
         navigate('/');
         if (token) {
-            console.log(token.jwt_token)
             fetch("https://api.candyvoice.com/v1.0/users/me", {
                 method: 'GET',
                 headers: {
