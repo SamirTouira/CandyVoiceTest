@@ -26,7 +26,6 @@ function Header() {
                                     }} ><span style={{color: "red"}}>Logout</span> </Nav.Link>
                                 </>)
                                 : (
-                                    // <Redirect to="/login"/>
                                     <Nav.Link as={NavLink} eventKey={3} to="/login" > Login</Nav.Link>
                                 )}
                         </>

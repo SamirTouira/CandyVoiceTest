@@ -8,12 +8,10 @@ function Voices() {
     const userVoices = JSON.parse(localStorage.getItem("user-voices"));
     useEffect(() => {
         if (token) {
-
             fetchVoicesList();
         } else {
             navigate('/');
         }
-
     }, [])
 
     async function fetchVoicesList() {
