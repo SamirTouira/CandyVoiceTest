@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Header from "./Header";
-
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -15,7 +13,14 @@ function Login() {
     }, [])
 
     async function login() {
-        // console.warn(email,password);
+        if (email == null || email == "") {
+            alert("Please fill your email and password");
+            return false;
+        }
+        if ( password == null || password == "") {
+            alert("Please fill your email and password");
+            return false;
+        }
         let item = { email, password, cookie };
         let result = await fetch("https://api.candyvoice.com/v1.0/auth/password", {
             method: 'POST',
@@ -29,8 +34,6 @@ function Login() {
         result = await result.json();
         if (!result.error) {
             localStorage.setItem("user-token", JSON.stringify(result));
-            console.log(result);
-
             navigate("/")
             window.location.reload(false);
 
@@ -40,7 +43,9 @@ function Login() {
     }
     return (
         <div className="col-sm-6 offset-sm-3">
+            <br />
             <h1>Login with your Candy Voice account</h1>
+            <br />
             <div>
                 <input type="text" placeholder="email" onChange={(e) => setEmail(e.target.value)} className="form-control" />
                 <br />

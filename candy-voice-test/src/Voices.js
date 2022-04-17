@@ -26,7 +26,6 @@ function Voices() {
             }
 
         });
-        // setData(result.data)
         result = await result.json();
         if (!result.error) {
             localStorage.setItem("user-voices", JSON.stringify(result));
@@ -61,7 +60,7 @@ function Voices() {
         <>
             <div className="col-sm-6 offset-sm-3">
                 <br />
-                <h1>My voices</h1>
+                <h1>My voices ({userVoices.length})</h1>
                 <br />
             </div>
 

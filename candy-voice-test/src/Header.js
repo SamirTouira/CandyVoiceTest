@@ -9,7 +9,7 @@ function Header() {
             <Container>
                 <Navbar.Brand href="/">Candy Voice Test</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Collapse style={{marginTop: "24px"}} id="basic-navbar-nav">
                     <Nav variant="tabs" defaultActiveKey="/" className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <>
@@ -27,7 +27,7 @@ function Header() {
                                 </>)
                                 : (
                                     // <Redirect to="/login"/>
-                                    <Nav.Link href="/login" > Login</Nav.Link>
+                                    <Nav.Link as={NavLink} eventKey={3} to="/login" > Login</Nav.Link>
                                 )}
                         </>
                     </Nav>
