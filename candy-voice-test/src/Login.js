@@ -32,13 +32,13 @@ function Login() {
 
         });
         result = await result.json();
-        if (!result.error) {
+        if (result.ok) {
             localStorage.setItem("user-token", JSON.stringify(result));
             navigate("/")
             window.location.reload(false);
 
         } else {                   
-            alert(result.error);
+            alert("Invalid email or password");
         }
     }
     return (

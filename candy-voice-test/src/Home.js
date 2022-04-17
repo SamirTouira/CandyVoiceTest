@@ -57,7 +57,7 @@ function Home() {
                             <h1>Welcome to Candy Voice Test app!</h1>
                             <br />
                             <div>
-                                <Button className="btn-light" onClick={() => { navigate('/login'); }} variant="light" size="lg">
+                                <Button className="btn-light" onClick={(e) => { navigate('/login'); }} variant="light" size="lg">
                                     <strong>LOGIN</strong>
                                 </Button>{' '}
                             </div>

@@ -32,6 +32,7 @@ function Profile() {
                         localStorage.setItem("update-response", JSON.stringify(response));
                         alert("Email successfully updated!");
                         navigate('/')
+                        window.location.reload(false);
                     } else {
                         alert(response[0].msg);
                     }
